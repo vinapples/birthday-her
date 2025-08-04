@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Patma's Birthday</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Quicksand', caveat;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #d1ecff;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100vh;
+    }
+
+    .swiper-slide {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1, h2, p {
+      color: #ffffff;
+      text-shadow: 2px 2px #6daecf;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: none;
+      margin: 10px;
+      width: 60%;
+    }
+
+    button {
+      background-color: #6ec1e4;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 20px;
+      color: white;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #4aaed1;
+    }
+
+    .cake {
+      font-size: 5rem;
+      opacity: 0;
+      transform: translateY(-200px);
+      transition: 1s ease-in;
+    }
+
+    .cake.drop {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    iframe {
+      margin-top: 20px;
+      border-radius: 15px;
+    }
+
+    .next-btn {
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+
+      <!-- Slide 1 -->
+      <div class="swiper-slide" style="background: linear-gradient(to bottom, #a6ddf5, #d1ecff);">
+        <h1>🎉 Halo jonggun's wife 🎉</h1>
+        <input type="text" id="nameInput" placeholder="Enter your name pretty..." />
+        <button onclick="goToSlide2()">Join!</button>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="swiper-slide" style="background: linear-gradient(to bottom, #98d4ed, #c2eaff);">
+        <div class="cake" id="cake">🎂</div>
+        <h2 id="birthdayText" style="margin-top: 20px;"></h2>
+        <button class="next-btn" onclick="goToSlide3()">Lanjut ke Pesan ➜</button>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="swiper-slide" style="background: linear-gradient(to bottom, #5fa2bd, #76c1da);">
+        <h1>My dearest Patmaa 💌</h1>
+        <p>
+          May your life be as calm as the ocean,<br>
+          and your heart always find its way home.<br>
+          Selamat ulang tahun sayang,<br>
+          aku harap tahun ini adalah tahun keberuntungan kamu!<br> 
+          Semoga semua tujuan yang kamu inginkan bisa tercapai di tahun ini ya..<br> 
+          Terimakasih banyak suda menjalani bertahun tahun dengan sangat luar biasa.<br>
+          Aku yakin rasa sakit ataupun air mata yang kamu tetesin,<br> 
+          akan diganti oleh berjuta juta kebahagiaan.<br>
+          Aku sayang kamu lebih dari apapun,<br>
+          semoga dimanapun kamu berada kamu selalu baik baik aja.<br>
+          Aku bangga sekali bisa kenal sama kamu,<br>
+          setiap waktu yang aku habisin sama kamu rasanya bener bener indah.<br>
+          Sekali lagi,<br>
+        Happy Birthday! 🌊💗
+        </p>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1Vm82EBiyQlvbnHJ08eWbb?utm_source=generator"
+          width="300" height="80" frameBorder="0" allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy">
+        </iframe>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper', {
+      allowTouchMove: false,
+    });
+
+    function goToSlide2() {
+      const name = document.getElementById('nameInput').value || "My Friend";
+      const cake = document.getElementById('cake');
+      const text = document.getElementById('birthdayText');
+
+      swiper.slideTo(1);
+      setTimeout(() => {
+        cake.classList.add('drop');
+        text.innerHTML = `Happy Birthday, <br><strong>${name}!</strong>`;
+      }, 500);
+    }
+
+    function goToSlide3() {
+      swiper.slideTo(2);
+    }
+  </script>
+</body>
+</html>
